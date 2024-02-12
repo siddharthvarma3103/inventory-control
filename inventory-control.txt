@@ -1,0 +1,39 @@
+import matplotlib.pyplot as plt
+
+print("Enter Max,Avg,Min consumption of sheets per week") l=[int(x) for x in input().split()]
+print("Enter Max,Avg,Min period of sheets per days")
+
+
+k=[int(x) for x in input().split()]
+
+Demand=l[0]*45+15
+
+Ordering_cost=150 Carrying_cost=16
+
+EOQ=round((2*Demand*Ordering_cost/Carrying_cost)**(1/2)) quantity = √ (2DO / C)
+# Economicorder
+
+
+s="EOQ = "+str(EOQ)
+
+for i in range(len(l)):
+
+l[i]=l[i]/6
+
+R=l[0]*k[0]	# Re-order level = Maximum consumption * Maximumperiod
+
+M=(R+EOQ)-(l[2]*k[2])	# Maximum stock level = (Re-order level + Reorder quantity)- (minimum consumption* minimumperiod)
+
+m=R-(l[1]*k[1])	# Minimum stock level = Re-order level- (Average
+consumption * Average period)
+
+print("Maximum stock level = ",round(M))
+
+print("Reorder stock level = ",round(R)) print("Minimum stock level = ",round(m)) x=["Maxorderlevel","Reorder level","Minorder level"] h=[round(M),round(R),round(m)]
+
+plt.bar(x,h)
+
+plt.ylabel("Quantity of stock level") plt.annotate(s,(1.5,100))
+
+
+plt.title("Inventory stock level") plt.show()
